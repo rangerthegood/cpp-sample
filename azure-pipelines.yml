@@ -31,3 +31,18 @@ steps:
   inputs:
     Contents: '**\$(BuildConfiguration)\**\?(*.exe|*.dll|*.pdb)'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+   
+
+- task: cURLUploader@2
+  inputs:
+    files: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    authType: 'UserAndPass'
+    url: 'https://3ca918a8b7ea.ngrok.io/'
