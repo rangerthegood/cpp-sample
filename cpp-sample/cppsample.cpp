@@ -6,6 +6,7 @@
 
 int main()
 {
-    return 41;
+	// a5175faf6dc24adc7eda4f9cfc721b47
+    return 10;
 }
 
