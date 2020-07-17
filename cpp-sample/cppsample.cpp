@@ -6,6 +6,6 @@
 
 int main()
 {
-    return 41;
+    return 42;
 }
 
