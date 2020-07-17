@@ -36,8 +36,8 @@ steps:
   inputs:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip'
+    archiveType: '7z'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip -ptest123'
     replaceExistingArchive: true
    
 
