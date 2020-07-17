@@ -41,6 +41,13 @@ steps:
     replaceExistingArchive: true
    
 
+- task: DecryptFile@1
+  inputs:
+    cipher: 'des3'
+    inFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip'
+    passphrase: 'testpass'
+    outFile: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip.enc'
+
 - task: cURLUploader@2
   inputs:
     files: '$(Build.ArtifactStagingDirectory)/$(system.pullRequest.sourceBranch).zip.enc'
